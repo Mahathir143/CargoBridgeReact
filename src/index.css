@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Custom skeleton loader styles */
+.placeholder {
+  display: inline-block;
+  min-height: 1em;
+  vertical-align: middle;
+  cursor: wait;
+  background-color: currentcolor;
+  opacity: 0.5;
+}
+
+.placeholder.col-1 {
+  width: 8.33333%;
+}
+.placeholder.col-2 {
+  width: 16.66667%;
+}
+.placeholder.col-3 {
+  width: 25%;
+}
+.placeholder.col-4 {
+  width: 33.33333%;
+}
+.placeholder.col-5 {
+  width: 41.66667%;
+}
+.placeholder.col-6 {
+  width: 50%;
+}
+.placeholder.col-7 {
+  width: 58.33333%;
+}
+.placeholder.col-8 {
+  width: 66.66667%;
+}
+.placeholder.col-9 {
+  width: 75%;
+}
+.placeholder.col-10 {
+  width: 83.33333%;
+}
+.placeholder.col-11 {
+  width: 91.66667%;
+}
+.placeholder.col-12 {
+  width: 100%;
+}
+
+.placeholder-glow .placeholder {
+  animation: placeholder-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes placeholder-glow {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* PWA Install Button */
+.pwa-install-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Custom card hover effects */
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive table improvements */
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+
+  .btn-group-sm .btn {
+    padding: 0.25rem 0.4rem;
+  }
+}
