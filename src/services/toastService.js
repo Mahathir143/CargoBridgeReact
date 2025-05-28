@@ -4,7 +4,7 @@ export const showToast = {
     success: (message, options = {}) => {
         toast.success(message, {
             duration: 4000,
-            position: 'top-right',
+            position: 'top-center',
             style: {
                 background: '#d1edff',
                 color: '#0c63e4',
@@ -21,7 +21,7 @@ export const showToast = {
     error: (message, options = {}) => {
         toast.error(message, {
             duration: 5000,
-            position: 'top-right',
+            position: 'top-center',
             style: {
                 background: '#f8d7da',
                 color: '#721c24',
@@ -38,7 +38,7 @@ export const showToast = {
     warning: (message, options = {}) => {
         toast(message, {
             duration: 4000,
-            position: 'top-right',
+            position: 'top-center',
             icon: '⚠️',
             style: {
                 background: '#fff3cd',
@@ -52,7 +52,7 @@ export const showToast = {
     info: (message, options = {}) => {
         toast(message, {
             duration: 4000,
-            position: 'top-right',
+            position: 'top-center',
             icon: 'ℹ️',
             style: {
                 background: '#d1ecf1',
