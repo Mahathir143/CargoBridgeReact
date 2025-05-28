@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     VitePWA({
@@ -36,6 +36,10 @@ export default defineConfig({
           }
         ]
       },
+      manifestFilename: 'manifest.webmanifest',
+      devOptions: {
+        enabled: mode === 'development'
+      },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}']
       }
@@ -46,4 +50,4 @@ export default defineConfig({
       '@': '/src'
     }
   }
-});
+}));
