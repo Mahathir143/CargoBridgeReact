@@ -1,34 +1,59 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navigation from './components/Navigation';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Cargo from './pages/Cargo';
 import About from './pages/About';
 import InstallPWAButton from './components/InstallPWAButton';
+import { useAuth } from './hooks/useAuth';
+
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navigation />
+    <div className="App">
+      <main className="min-vh-100">
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
-        <main className="min-vh-100">
-          <Routes>
-            <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Navigation />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/home" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/cargo" element={<Cargo />} />
             <Route path="/about" element={<About />} />
-          </Routes>
-        </main>
+            {/* Add more nested routes here */}
+          </Route>
 
-        {/* Install PWA Button: shown conditionally based on platform */}
-        <InstallPWAButton />
+          {/* Fallback route */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
 
-        <Toaster />
-      </div>
-    </Router>
+      {/* Install PWA Button: shown conditionally based on platform */}
+      <InstallPWAButton />
+
+      <Toaster />
+    </div>
   );
 }
 
