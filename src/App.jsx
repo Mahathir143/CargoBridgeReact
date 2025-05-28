@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Cargo from './pages/Cargo';
 import About from './pages/About';
+import InstallPWAButton from './components/InstallPWAButton';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
+
+        {/* Install PWA Button: shown conditionally based on platform */}
+        <InstallPWAButton />
 
         <Toaster />
       </div>
